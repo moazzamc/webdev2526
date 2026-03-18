@@ -1,13 +1,16 @@
 /* Challenge 2: Complete the init() function so that you build HTML output as per the wireframe diagram image.
-Notes:
+Notes: 
+
 1) Images
    a. Titles and Pizza are both images stored in the images folder.
    b. When creating the images give each a class of either "title" or "pizza" respectively
    c. Each image has been conveniently labeled with a number at the end in order to use a 
       loop to retrieve the images.
+
+
 2) Create an appropriate random price to display for each pizza
 3) Enter quantity is a text input
-4) Buy is a button input
+4) Buy is a button input 
 
 Now that you have the template, use a for loop to produce all five pizza cards.
 */ 
@@ -16,7 +19,18 @@ Now that you have the template, use a for loop to produce all five pizza cards.
 
 //init() function is called when the page loads in index.html
 function init(){
-  
-
+      let output = document.getElementById("output");
+      let build = "";
+      for(let i = 1; i <= 5; i++){
+            build += `<div class="card">`;
+            build += `<img class="title" src="images/title${i}.png" alt="Pizza Title ${i}">`;
+            build += `<img class="pizza" src="images/pizza${i}.jpg" alt="Pizza Image ${i}">`;
+            let price = (Math.random() * 20 + 5).toFixed(2); // Random price between $5 and $25
+            build += `<p>Price: $${price}</p>`;
+            build += `<input type="text" placeholder="Enter quantity">`;
+            build += `<button>Buy</button>`;
+            build += `</div>`;
+      }
+      output.innerHTML = build;
+           
 }
-
